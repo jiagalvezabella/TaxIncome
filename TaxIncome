@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class IncomeTax 
+{
+    public static void main(String[] args) 
+    {
+        Scanner scan = new Scanner(System.in);
+
+        double hrWrkd, rateHr, oTPay, gPay, tax, nPay;
+        
+        String proceed;
+        
+
+        do 
+        {
+               String display;
+               
+               hrWrkd = gethrswrkd();
+               rateHr = getRate();
+               oTHr = OTHour();
+               oTPay = OTPay(rateHr, oTHr);
+               gPay = Gross(rateHr, hrWrkd, oTPay);
+               tax = getTax(gPay);
+               nPay = getNetPay(gPay, tax);
+               display = Display(oTPay, gPay, tax, nPay);
+           
+               System.out.println("Do you want to continue? (Y) || (N):");           
+               proceed = scan.nextLine().toLowerCase();
+        } 
+         while (proceed.equals("y"));
+     }
+        
